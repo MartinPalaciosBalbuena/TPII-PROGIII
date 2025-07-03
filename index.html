@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokédex - TP Facultad</title>
+    <link rel="stylesheet" href="src/styles/main.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1 class="logo">
+          <i class="fas fa-dragon"></i>
+          Pokédex
+        </h1>
+        <nav class="nav">
+          <a href="index.html" class="nav-link active">Inicio</a>
+          <a href="favorites.html" class="nav-link">Favoritos</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <!-- Controles de búsqueda y filtros -->
+        <section class="controls">
+          <div class="search-container">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Buscar Pokémon por nombre..."
+              class="search-input"
+            />
+            <i class="fas fa-search search-icon"></i>
+          </div>
+
+          <div class="filters">
+            <select id="typeFilter" class="filter-select">
+              <option value="">Todos los tipos</option>
+            </select>
+
+            <select id="sortSelect" class="filter-select">
+              <option value="id">Ordenar por ID</option>
+              <option value="name">Ordenar por Nombre</option>
+            </select>
+          </div>
+        </section>
+
+        <!-- Loader -->
+        <div id="loader" class="loader">
+          <div class="pokeball-loader">
+            <div class="pokeball">
+              <div class="pokeball-top"></div>
+              <div class="pokeball-middle"></div>
+              <div class="pokeball-bottom"></div>
+            </div>
+          </div>
+          <p>Cargando Pokémon...</p>
+        </div>
+
+        <!-- Mensaje de error -->
+        <div id="errorMessage" class="error-message hidden">
+          <i class="fas fa-exclamation-triangle"></i>
+          <p>Error al cargar los datos. Por favor, intenta nuevamente.</p>
+          <button id="retryBtn" class="retry-btn">Reintentar</button>
+        </div>
+
+        <!-- Grid de Pokémon -->
+        <section id="pokemonGrid" class="pokemon-grid">
+          <!-- Los Pokémon se cargarán aquí dinámicamente -->
+        </section>
+
+        <!-- Paginación -->
+        <div class="pagination">
+          <button id="prevBtn" class="pagination-btn" disabled>
+            <i class="fas fa-chevron-left"></i>
+            Anterior
+          </button>
+          <span id="pageInfo" class="page-info">Página 1</span>
+          <button id="nextBtn" class="pagination-btn">
+            Siguiente
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal para detalles del Pokémon -->
+    <div id="pokemonModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="modalBody" class="modal-body">
+          <!-- Contenido del modal se carga dinámicamente -->
+        </div>
+      </div>
+    </div>
+
+    <script src="src/js/main.js" type="module"></script>
+  </body>
+</html>
